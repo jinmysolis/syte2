@@ -4,6 +4,7 @@ use TeachMe\Http\Requests;
 use TeachMe\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
+use TeachMe\Entities\Ticket;
 
 class TicketsController extends Controller {
 
@@ -14,7 +15,8 @@ class TicketsController extends Controller {
 	 */
 	public function latest()
 	{
-           return view('tickes.listar');
+           $tickets = Ticket::orderBy('id','DESC')->paginate();
+             return view('tickes.listar',compact('tickets'));
 	}
 
 	public function popular()
@@ -35,7 +37,8 @@ class TicketsController extends Controller {
         
          public function datails($id)
 	{
-            dd('datails: '. $id);
+             $ticket =Ticket::findOrFail($id);
+            return view('tickes.details',compact('ticket'));
 	}
         
        

@@ -2,13 +2,36 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
- use TeachMe\Entities\Ticket;
+use TeachMe\Entities;
+use TeachMe\Entities\Entity;
+use TeachMe\Entities\TicketCommet;
+use TeachMe\Entities\Ticket;
 // use Faker\Factory as Faker;
 
 
 
-class Ticket extends Model {
-    protected $fillable = [];
-	protected $table = 'tickets';
+class Ticket extends Entity {
+   
+   protected $fillable = [];
+   protected $table = 'tickets';
+   
+   
+   public function author()
+   {
+       return $this->belongsTo(User::getClass());
+   }
+
+   
+
+   public function comments()
+   {
+       return $this->hasMany(TicketCommet::getClass());
+   }
+   
+   
+   public function voters(){
+       return $this->belongsToMany(User::getClass(),'ticket_votes');
+   }
+   
 
 }

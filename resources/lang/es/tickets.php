@@ -2,6 +2,10 @@
 
 return array(
     
+    
+    
+    
+    
     'status' =>array(
         
     'open' => 'Abierta',

@@ -8,8 +8,12 @@
             <h2 class="title-show">
                 {{$ticket->title}}
                 
-                 <p class="date-t"><span class="glyphicon glyphicon-time"></span>  {{$ticket->created_at->format('d/m/y h:ia')}}</p>
+                 <p class="date-t"><span class="glyphicon glyphicon-time"></span>  {{$ticket->created_at->format('d/m/y h:ia')}}
+                     <br>
+                 Autor: {{$ticket->author->name}}
+                 
                  </p>
+                
                 
                 <span class="label label-info absolute highlight">{{$ticket->status}}</span>
 
@@ -23,13 +27,31 @@
                 
             @endforeach
             </p>
+            
+            @if(! currentUser()->hasVoted($ticket))
+            {!!Form::open(['route'=>['vote.submit',$ticket->id],'method'=>'POST'])!!}
 
-            <form method="POST" action="http://teachme.dev/votar/5" accept-charset="UTF-8"><input name="_token" type="hidden" value="VBIv3EWDAIQuLRW0cGwNQ4OsDKoRhnK2fAEF6UbQ">
-                <!--button type="submit" class="btn btn-primary">Votar</button-->
-                <button type="submit" class="btn btn-primary">
+     
+            <button type="submit" class="btn btn-primary">
                     <span class="glyphicon glyphicon-thumbs-up"></span> Votar
                 </button>
-            </form>
+
+           {!!Form::close()!!}
+           @else
+           
+           
+            {!!Form::open(['route'=>['vote.destroy',$ticket->id],'method'=>'DELETE'])!!}
+
+     
+            <button type="submit" class="btn btn-primary">
+                    <span class="glyphicon glyphicon-thumbs-down"></span> Quitar Votar
+                </button>
+
+           {!!Form::close()!!}
+
+            @endif
+            
+            
 
             <h3>Nuevo Comentario</h3>
 

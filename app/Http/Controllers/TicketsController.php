@@ -3,8 +3,13 @@
 use TeachMe\Http\Requests;
 use TeachMe\Http\Controllers\Controller;
 
+use Illuminate\Auth\Guard;
+use Illuminate\Support\Facades\Redirect;
+
+
 use Illuminate\Http\Request;
 use TeachMe\Entities\Ticket;
+
 
 class TicketsController extends Controller {
 
@@ -35,12 +40,33 @@ class TicketsController extends Controller {
             dd('closed');
 	}
         
-         public function datails($id)
+         public function datails($id, Guard $auth)
 	{
              $ticket =Ticket::findOrFail($id);
-            return view('tickes.details',compact('ticket'));
+             $user = $auth->user();
+            return view('tickes.details',compact('ticket','user'));
 	}
         
-       
-
+       public function create()
+	{
+		return view('tickes.create');
+	}
+        
+        
+        public function store(Request $request, Guard $auth)
+	{
+          $this->validate($request, [
+            'title' => 'required|max:120',
+            
+              ]);
+             $ticket = $auth->user()->tickets()->create([
+                  'title'   =>$request->get('title'),
+                  'status'  => 'open'
+              ]);
+              
+              return redirect()->back();
+              
+	}
+    
+        
 }

@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 use TeachMe\Entities;
+
 use TeachMe\Entities\Entity;
 use TeachMe\Entities\TicketCommet;
 use TeachMe\Entities\Ticket;
@@ -12,13 +13,13 @@ use TeachMe\Entities\Ticket;
 
 class Ticket extends Entity {
    
-   protected $fillable = [];
+   protected $fillable = ['title', 'link', 'status'];
    protected $table = 'tickets';
    
    
    public function author()
    {
-       return $this->belongsTo(User::getClass());
+       return $this->belongsTo(User::getClass(),'user_id');
    }
 
    

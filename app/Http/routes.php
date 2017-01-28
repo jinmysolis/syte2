@@ -45,3 +45,32 @@ Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
 ]);
+
+
+Route::post('/solicitar',[
+            'uses'=>'TicketsController@store', 
+            'as'=> 'tickets.store'
+         ]);
+
+
+Route::group(['middleware' => 'auth'], function () {
+     //crear  
+   Route::get('/solicitar',[
+            'uses'=>'TicketsController@create', 
+            'as'=> 'tickets.create'
+         ]);
+   
+   
+    //votar
+   Route::post('votar/{id}',[
+            'uses'=>'VotesController@submit', 
+            'as'=> 'vote.submit'
+         ]);
+   
+   Route::delete('votar/{id}',[
+            'uses'=>'VotesController@destroy', 
+            'as'=> 'vote.destroy'
+         ]);
+   
+});
+

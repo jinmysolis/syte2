@@ -8,7 +8,7 @@
             <div class="row">
                 <h1>
                     Solicitudes Populares
-                    <a href="#" class="btn btn-primary">
+                    <a href="{{route('tickets.create')}}" class="btn btn-primary">
                         Nueva solicitud                    </a>
                 </h1>
 

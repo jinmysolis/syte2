@@ -64,6 +64,7 @@ class TicketsController extends Controller {
                   'status'  => 'open'
               ]);
               
+             session()->flash('success', 'Tu comentario fue guardado exitosamente');
               return redirect()->back();
               
 	}

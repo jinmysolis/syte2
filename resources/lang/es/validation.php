@@ -115,7 +115,9 @@ return [
         
         'email' =>'Correo Electronico',
         'password' =>'Contraseña',
-        'title' => 'Titulo'
+        'title' => 'Titulo',
+        'comment'=> 'Comentarios',
+        'link'=> 'Enlace',
     ],
       
 ];

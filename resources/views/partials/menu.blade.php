@@ -2,7 +2,7 @@
 
 <ul class="nav navbar-nav">
     <li role="presentation">
-        <a href="{{route('tickets.latest')}}">Recientes</a>
+        <a href="{{route('tickets.latest')}}">Recientesbbb</a>
     </li>
     <li role="presentation" class="active">
         <a href="{{route('tickets.popular')}}">Populares</a>

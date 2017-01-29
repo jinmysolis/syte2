@@ -36,30 +36,31 @@
                 
             @endforeach
             </p>
-            @if ( ! currentUser()->hasVoted($ticket))
-            
-            {!!Form::open(['route'=>['vote.submit',$ticket->id],'method'=>'POST'])!!}
+            @if (Auth::check())
+                    @if ( ! currentUser()->hasVoted($ticket))
 
-     
-            <button type="submit" class="btn btn-primary">
-                    <span class="glyphicon glyphicon-thumbs-up"></span> Votar
-                </button>
+                    {!!Form::open(['route'=>['vote.submit',$ticket->id],'method'=>'POST'])!!}
 
-           {!!Form::close()!!}
-           @else
-           
-           
-            {!!Form::open(['route'=>['vote.destroy',$ticket->id],'method'=>'DELETE'])!!}
 
-     
-            <button type="submit" class="btn btn-primary">
-                    <span class="glyphicon glyphicon-thumbs-down"></span> Quitar Votar
-                </button>
+                    <button type="submit" class="btn btn-primary">
+                            <span class="glyphicon glyphicon-thumbs-up"></span> Votar
+                        </button>
 
-           {!!Form::close()!!}
+                   {!!Form::close()!!}
+                   @else
 
-            @endif
-            
+
+                    {!!Form::open(['route'=>['vote.destroy',$ticket->id],'method'=>'DELETE'])!!}
+
+
+                    <button type="submit" class="btn btn-primary">
+                            <span class="glyphicon glyphicon-thumbs-down"></span> Quitar Votar
+                        </button>
+
+                   {!!Form::close()!!}
+
+                    @endif
+             @endif
             
 
             <h3>Nuevo Comentario</h3>

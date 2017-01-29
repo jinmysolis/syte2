@@ -4,6 +4,8 @@
                         <span class="label label-info absolute"> {{ trans('tickets.status.'. $ticket->status) }}</span>
 
                     </h4>
+      
+        @if (Auth::check())
                     <p>
                         <a href="#" class="btn btn-primary btn-vote" title="Votar por este tutorial">
                             <span class="glyphicon glyphicon-thumbs-up"></span> Votar
@@ -17,7 +19,9 @@
                             <span class="votes-count">{{$ticket->voters()->count()}} votos</span>
                             - <span class="comments-count">{{$ticket->comments()->count()}} comentarios</span>.
                         </a>
-
+                         </p>
+         @endif
                     <p class="date-t"><span class="glyphicon glyphicon-time"></span>  {{$ticket->created_at->format('d/m/y h:ia')}}</p>
-                    </p>
+                    Hecho por {{$ticket->author->name}}
+                     </p>
                 </div> 

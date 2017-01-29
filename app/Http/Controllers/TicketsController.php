@@ -6,7 +6,7 @@ use TeachMe\Http\Controllers\Controller;
 use Illuminate\Auth\Guard;
 use Illuminate\Support\Facades\Redirect;
 
-
+use Laracasts\Flash\Flash;
 use Illuminate\Http\Request;
 use TeachMe\Entities\Ticket;
 
@@ -64,8 +64,8 @@ class TicketsController extends Controller {
                   'status'  => 'open'
               ]);
               
-             session()->flash('success', 'Tu comentario fue guardado exitosamente');
-              return redirect()->back();
+              flash::success("Desea Crear Una Nueva Solicitud");
+               return redirect()->back();
               
 	}
     

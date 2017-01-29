@@ -136,6 +136,7 @@ return [
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
                 'Collective\Html\HtmlServiceProvider',
+                'Laracasts\Flash\FlashServiceProvider',
               
 
 		/*
@@ -197,7 +198,7 @@ return [
                 'Form' => 'Collective\Html\FormFacade',
                 'Html' => 'Collective\Html\HtmlFacade',
             
-                'Debugbar' => 'Barryvdh\Debugbar\Facade',
+                'Flash' => 'Laracasts\Flash\Flash',
 
 	],
 

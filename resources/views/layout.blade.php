@@ -42,7 +42,6 @@
 
                    @include('partials.menu')
 
-
                      @include('layout.login')
                    
                 </div>
@@ -50,7 +49,7 @@
         </div>
     </div>
 </nav>
-
+@include('flash::message')
 @yield('content')
 
 

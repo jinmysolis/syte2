@@ -69,5 +69,15 @@ class TicketsController extends Controller {
               
 	}
     
-        
+        public function destroy($id)
+	{
+            
+           
+            
+		$category= Ticket::find($id);
+                $category->delete();
+         
+           flash::error('La solicitud ha sido borrado correctamente');
+           return redirect()->back();
+	}
 }

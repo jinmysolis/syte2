@@ -21,6 +21,14 @@ Route::get('/',[
             'as'=> 'tickets.latest'
          ]);
 
+
+Route::get('tickets/{id}/destroy',[
+            'uses'=>'TicketsController@destroy', 
+            'as'=> 'tickets.destroy'
+       ]);
+
+
+
 Route::get('/populares',[
             'uses'=>'TicketsController@popular', 
             'as'=> 'tickets.popular'
@@ -76,6 +84,8 @@ Route::group(['middleware' => 'auth'], function () {
             'uses'=>'CommentsController@submit', 
             'as'=> 'comments.submit'
          ]);
+   
+   
    
 });
 

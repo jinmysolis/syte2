@@ -7,9 +7,7 @@
       
         @if (Auth::check())
                     <p>
-                        <a href="#" class="btn btn-primary btn-vote" title="Votar por este tutorial">
-                            <span class="glyphicon glyphicon-thumbs-up"></span> Votar
-                        </a>
+                         <a href="{{route('tickets.destroy',$ticket->id)}}" onclick="return confirm('Seguro desea eliminar')"class="btn btn-warning glyphicon glyphicon-trash"></a>
 
                         <a href="#" class="btn btn-hight btn-unvote hide">
                             <span class="glyphicon glyphicon-thumbs-down"></span> No votar
@@ -18,6 +16,7 @@
                         <a href="{{ route('tickets.datails',$ticket)}}">
                             <span class="votes-count">{{$ticket->voters()->count()}} votos</span>
                             - <span class="comments-count">{{$ticket->comments()->count()}} comentarios</span>.
+                            <a href="{{route('tickets.destroy',$ticket->id)}}" onclick="return confirm('Seguro desea eliminar')"class="btn btn-warning glyphicon glyphicon-trash"></a>
                         </a>
                          </p>
          @endif

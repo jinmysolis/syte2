@@ -6,10 +6,9 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="row">
-                <h1>
-                    Solicitudes Populares
-                    <a href="{{route('tickets.create')}}" class="btn btn-primary">
-                        Nueva solicitud                    </a>
+                <h1 class="text-center">
+                    Ultimas Solicitudes 
+                    
                 </h1>
 
                 <p class="label label-info news">

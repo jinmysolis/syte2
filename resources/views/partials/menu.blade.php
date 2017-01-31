@@ -2,16 +2,11 @@
 
 <ul class="nav navbar-nav">
     <li role="presentation">
-        <a href="{{route('tickets.latest')}}">Recientesbbb</a>
+        <a href="{{route('tickets.latest')}}">Ultimas</a>
     </li>
-    <li role="presentation" class="active">
-        <a href="{{route('tickets.popular')}}">Populares</a>
-    </li>
+    
     <li role="presentation">
-        <a href="{{route('tickets.open')}}">Abiertas</a>
-    </li>
-    <li role="presentation">
-        <a href="{{route('tickets.closed')}}">Finalizadas</a>
+        <a href="{{route('tickets.create')}}">Crear Nueva Solicitud</a>
     </li>
 </ul>
 

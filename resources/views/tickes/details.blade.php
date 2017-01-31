@@ -25,7 +25,11 @@
                 
                 
                 <span class="label label-info absolute highlight">{{$ticket->status}}</span>
-
+                <p class="text-right">
+               
+           
+              </p>
+            
             </h2>
             <h4 class="label label-info news">
               {{count($ticket->voters)}} votos            </h4>
@@ -61,6 +65,7 @@
 
                     @endif
              @endif
+            
             
 
             <h3>Nuevo Comentario</h3>
